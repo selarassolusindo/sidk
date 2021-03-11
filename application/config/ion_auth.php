@@ -38,10 +38,10 @@ $config['database_group_name'] = '';
 | -------------------------------------------------------------------------
 | Database table names.
 */
-$config['tables']['users']           = 'users';
-$config['tables']['groups']          = 'groups';
-$config['tables']['users_groups']    = 'users_groups';
-$config['tables']['login_attempts']  = 'login_attempts';
+$config['tables']['users']           = 't46_users';
+$config['tables']['groups']          = 't47_groups';
+$config['tables']['users_groups']    = 't48_users_groups';
+$config['tables']['login_attempts']  = 't49_login_attempts';
 
 /*
  | Users table column and Group table column you want to join WITH.
@@ -134,7 +134,7 @@ $config['site_title']                 = "Example.com";       // Site Title, exam
 $config['admin_email']                = "admin@example.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
-$config['identity']                   = 'email';             /* You can use any unique column in your table as identity column.
+$config['identity']                   = 'username';          /* You can use any unique column in your table as identity column.
 															    The values in this column, alongside password, will be used for login purposes
 															    IMPORTANT: If you are changing it from the default (email),
 															    		   update the UNIQUE constraint in your DB */
