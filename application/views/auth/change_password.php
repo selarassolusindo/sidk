@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('change_password_new_password_confirm_label', 'new_password_confirm', array('class'=>'bmd-label-floating'));?> <br />
+                                <?php echo lang('change_password_new_password_confirm_label', 'new_password_confirm', array('class'=>'bmd-label-floating'));?>
                                 <?php echo form_input($new_password_confirm,'',array('class'=>'form-control'));?>
                             </div>
                         </div>
