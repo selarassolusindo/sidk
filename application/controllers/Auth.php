@@ -480,15 +480,15 @@ class Auth extends CI_Controller
 
 		// validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'trim|required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
+		// $this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'trim|required');
 		if ($identity_column !== 'email')
 		{
 			$this->form_validation->set_rules('identity', $this->lang->line('create_user_validation_identity_label'), 'trim|required|is_unique[' . $tables['users'] . '.' . $identity_column . ']');
-			$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email');
+			// $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email');
 		}
 		else
 		{
-			$this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');
+			// $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'trim|required|valid_email|is_unique[' . $tables['users'] . '.email]');
 		}
 		$this->form_validation->set_rules('phone', $this->lang->line('create_user_validation_phone_label'), 'trim');
 		$this->form_validation->set_rules('company', $this->lang->line('create_user_validation_company_label'), 'trim');
@@ -570,7 +570,10 @@ class Auth extends CI_Controller
 				'value' => $this->form_validation->set_value('password_confirm'),
 			];
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+            $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'create_user';
+            $this->data['_caption'] = lang('create_user_heading');
+            $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 	}
 	/**
@@ -597,6 +600,10 @@ class Auth extends CI_Controller
 			redirect('auth', 'refresh');
 		}
 
+        $tables = $this->config->item('tables', 'ion_auth');
+        $identity_column = $this->config->item('identity', 'ion_auth');
+        $this->data['identity_column'] = $identity_column;
+
 		$user = $this->ion_auth->user($id)->row();
 		$groups = $this->ion_auth->groups()->result_array();
 		$currentGroups = $this->ion_auth->get_users_groups($id)->result_array();
@@ -607,9 +614,13 @@ class Auth extends CI_Controller
 
 		// validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'trim|required');
-		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'trim|required');
+		// $this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'trim|required');
 		$this->form_validation->set_rules('phone', $this->lang->line('edit_user_validation_phone_label'), 'trim');
 		$this->form_validation->set_rules('company', $this->lang->line('edit_user_validation_company_label'), 'trim');
+        if ($identity_column !== 'email') {
+            // $this->form_validation->set_rules('identity', $this->lang->line('edit_user_validation_identity_label'), 'trim|required|is_unique[' . $tables['users'] . '.' . $identity_column . ']');
+            $this->form_validation->set_rules('identity', $this->lang->line('edit_user_validation_identity_label'), 'trim|required');
+        }
 
 		if (isset($_POST) && !empty($_POST))
 		{
@@ -628,12 +639,18 @@ class Auth extends CI_Controller
 
 			if ($this->form_validation->run() === TRUE)
 			{
+                $identity = ($identity_column === 'email') ? '' : $this->input->post('identity');
 				$data = [
 					'first_name' => $this->input->post('first_name'),
 					'last_name' => $this->input->post('last_name'),
 					'company' => $this->input->post('company'),
 					'phone' => $this->input->post('phone'),
 				];
+
+                if ($identity_column === 'email') {
+                } else {
+                    $data[$identity_column] = $identity;
+                }
 
 				// update the password if it was posted
 				if ($this->input->post('password'))
@@ -722,6 +739,12 @@ class Auth extends CI_Controller
 			'id'   => 'password_confirm',
 			'type' => 'password'
 		];
+        $this->data['identity'] = [
+            'name'  => 'identity',
+            'id'    => 'identity',
+            'type'  => 'text',
+            'value' => $this->form_validation->set_value('identity', $user->$identity_column),
+        ];
 
 		// $this->_render_page('auth/edit_user', $this->data);
         $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'edit_user';

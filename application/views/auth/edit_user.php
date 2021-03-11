@@ -17,14 +17,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <?php
+                    if ($identity_column!=='email') {
+                    ?>
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('edit_user_lname_label', 'last_name', array('class'=>'bmd-label-floating'));?>
-                                <?php echo form_input($last_name,'',array('class'=>'form-control'));?>
+                                <?php echo lang('edit_user_identity_label', 'identity', array('class'=>'bmd-label-floating')); ?>
+                                <?php echo form_error('identity'); ?>
+                                <?php echo form_input($identity,'',array('class'=>'form-control')); ?>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    }
+                    ?>
+
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
