@@ -434,7 +434,10 @@ class Auth extends CI_Controller
 			$this->data['user'] = $this->ion_auth->user($id)->row();
 			$this->data['identity'] = $this->config->item('identity', 'ion_auth');
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
+			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
+            $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'deactivate_user';
+            $this->data['_caption'] = lang('deactivate_heading');
+            $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 		else
 		{
@@ -722,7 +725,7 @@ class Auth extends CI_Controller
 
 		// $this->_render_page('auth/edit_user', $this->data);
         $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'edit_user';
-        $this->data['_caption'] = lang('index_heading');
+        $this->data['_caption'] = lang('edit_user_heading');
         $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 	}
 
@@ -848,7 +851,7 @@ class Auth extends CI_Controller
 
 		// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
         $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'edit_group';
-        $this->data['_caption'] = lang('index_heading');
+        $this->data['_caption'] = lang('edit_group_title');
         $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 	}
 
