@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('create_user_fname_label', 'first_name', array('class'=>'bmd-label-floating'));?> <br />
+                                <?php echo lang('create_user_fname_label', 'first_name', array('class'=>'bmd-label-floating'));?>
                                 <?php echo form_input($first_name,'',array('class'=>'form-control'));?>
                             </div>
                         </div>

@@ -179,7 +179,10 @@ class Auth extends CI_Controller
 			];
 
 			// render
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
+			// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
+            $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'change_password';
+            $this->data['_caption'] = lang('change_password_heading');
+            $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 		}
 		else
 		{
@@ -800,7 +803,10 @@ class Auth extends CI_Controller
 			'value' => $this->form_validation->set_value('description'),
 		];
 
-		$this->_render_page('auth/create_group', $this->data);
+		// $this->_render_page('auth/create_group', $this->data);
+        $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'create_group';
+        $this->data['_caption'] = lang('create_group_title');
+        $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 
 	}
 

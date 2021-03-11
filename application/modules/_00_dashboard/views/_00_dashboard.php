@@ -192,8 +192,8 @@ The above copyright notice and this permission notice shall be included in all c
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                         <?php if ($this->session->userdata('user_id') != "") { ?>
-                                        <a class="dropdown-item" href="#">Profile</a>
-                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <!-- <a class="dropdown-item" href="#">Profile</a> -->
+                                        <a class="dropdown-item" href="<?php echo site_url(); ?>auth/change_password">Change Password</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="<?php echo site_url(); ?>auth/logout">Logout</a>
                                         <?php } else { ?>
