@@ -720,7 +720,10 @@ class Auth extends CI_Controller
 			'type' => 'password'
 		];
 
-		$this->_render_page('auth/edit_user', $this->data);
+		// $this->_render_page('auth/edit_user', $this->data);
+        $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'edit_user';
+        $this->data['_caption'] = lang('index_heading');
+        $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 	}
 
 	/**
@@ -843,7 +846,10 @@ class Auth extends CI_Controller
 			'value' => $this->form_validation->set_value('group_description', $group->description),
 		];
 
-		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
+		// $this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
+        $this->data['_view']    = 'auth' . DIRECTORY_SEPARATOR . 'edit_group';
+        $this->data['_caption'] = lang('index_heading');
+        $this->load->view('_00_dashboard/_00_dashboard', $this->data);
 	}
 
 	/**

@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-        $data['_view'] = 'dashboard';
+        $data['_view'] = '_01_content';
         $data['_caption'] = 'Dashboard';
         $this->load->view('_00_dashboard/_00_dashboard', $data);
 	}
