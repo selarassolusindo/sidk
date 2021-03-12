@@ -26,9 +26,106 @@ The above copyright notice and this permission notice shall be included in all c
         <link href="<?php echo base_url(); ?>assets/material/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="<?php echo base_url(); ?>assets/material/assets/demo/demo.css" rel="stylesheet" />
+
+        <style>
+            .pagination {
+                display: inline-block;
+                padding-left: 0;
+                margin: 20px 0;
+                border-radius: 4px;
+            }
+            .pagination > li {
+                display: inline;
+            }
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #428bca;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+            .pagination > li > a:hover,
+            .pagination > li > span:hover,
+            .pagination > li > a:focus,
+            .pagination > li > span:focus {
+                color: #2a6496;
+                background-color: #eee;
+                border-color: #ddd;
+            }
+            .pagination > .active > a,
+            .pagination > .active > span,
+            .pagination > .active > a:hover,
+            .pagination > .active > span:hover,
+            .pagination > .active > a:focus,
+            .pagination > .active > span:focus {
+                z-index: 2;
+                color: #fff;
+                cursor: default;
+                background-color: #428bca;
+                border-color: #428bca;
+            }
+            .pagination > .disabled > span,
+            .pagination > .disabled > span:hover,
+            .pagination > .disabled > span:focus,
+            .pagination > .disabled > a,
+            .pagination > .disabled > a:hover,
+            .pagination > .disabled > a:focus {
+                color: #999;
+                cursor: not-allowed;
+                background-color: #fff;
+                border-color: #ddd;
+            }
+            .pagination-lg > li > a,
+            .pagination-lg > li > span {
+                padding: 10px 16px;
+                font-size: 18px;
+            }
+            .pagination-lg > li:first-child > a,
+            .pagination-lg > li:first-child > span {
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+            .pagination-lg > li:last-child > a,
+            .pagination-lg > li:last-child > span {
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+            .pagination-sm > li > a,
+            .pagination-sm > li > span {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+            .pagination-sm > li:first-child > a,
+            .pagination-sm > li:first-child > span {
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+            .pagination-sm > li:last-child > a,
+            .pagination-sm > li:last-child > span {
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+        </style>
+
     </head>
 
-    <body class="">
+    <body class="text-sm">
 
         <!-- Wrapper -->
         <div class="wrapper ">
@@ -53,11 +150,37 @@ The above copyright notice and this permission notice shall be included in all c
                         </li>
 
                         <?php if ($this->ion_auth->logged_in()) { ?>
+                        <!-- setup -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">description</i>Setup</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<?php echo site_url('_42_provinsi'); ?>">Provinsi</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_43_kabupaten'); ?>">Kabupaten</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_44_kecamatan'); ?>">Kecamatan</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_45_desa'); ?>">Desa</a>
+                                <!-- <div class="dropdown-divider"></div> -->
+                                <!-- <a class="dropdown-item" href="javascript:;">Separated link</a> -->
+                            </div>
+                        </li>
                         <!-- user management -->
                         <li class="nav-item ">
                             <a class="nav-link" href="<?php echo site_url(); ?>auth">
                                 <i class="material-icons">people</i>
                                 <p>User Management</p>
+                            </a>
+                        </li>
+                        <!-- warga -->
+                        <li class="nav-item ">
+                            <a class="nav-link" href="<?php echo site_url(); ?>_05_warga">
+                                <i class="material-icons">escalator_warning</i>
+                                <p>Warga</p>
+                            </a>
+                        </li>
+                        <!-- penduduk -->
+                        <li class="nav-item ">
+                            <a class="nav-link" href="<?php echo site_url(); ?>_06_penduduk">
+                                <i class="material-icons">escalator_warning</i>
+                                <p>Penduduk</p>
                             </a>
                         </li>
                         <!-- user profile -->
@@ -155,7 +278,7 @@ The above copyright notice and this permission notice shall be included in all c
                             <span class="navbar-toggler-icon icon-bar"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-end">
-                            <form class="navbar-form">
+                            <!-- <form class="navbar-form">
                                 <div class="input-group no-border">
                                     <input type="text" value="" class="form-control" placeholder="Search...">
                                     <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -163,15 +286,15 @@ The above copyright notice and this permission notice shall be included in all c
                                         <div class="ripple-container"></div>
                                     </button>
                                 </div>
-                            </form>
+                            </form> -->
                             <ul class="navbar-nav">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="javascript:;">
                                         <i class="material-icons">dashboard</i>
                                         <p class="d-lg-none d-md-block">Stats</p>
                                     </a>
-                                </li>
-                                <li class="nav-item dropdown">
+                                </li> -->
+                                <!-- <li class="nav-item dropdown">
                                     <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">notifications</i>
                                         <span class="notification">5</span>
@@ -184,7 +307,7 @@ The above copyright notice and this permission notice shall be included in all c
                                         <a class="dropdown-item" href="#">Another Notification</a>
                                         <a class="dropdown-item" href="#">Another One</a>
                                     </div>
-                                </li>
+                                </li> -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">person</i>
@@ -536,6 +659,13 @@ The above copyright notice and this permission notice shall be included in all c
                 md.initDashboardPageCharts();
 
             });
+        </script>
+        <script>
+            $(function () {
+                $('.btn').addClass('btn-sm')
+                $('.table').addClass('table-sm')
+                $('.form-control').addClass('form-control-sm')
+            })
         </script>
     </body>
 </html>

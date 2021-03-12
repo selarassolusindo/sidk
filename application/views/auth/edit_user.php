@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('edit_user_fname_label', 'first_name', array('class'=>'bmd-label-floating'));?>
+                                <?php echo lang('edit_user_fname_label', 'first_name', array('class'=>'bmd-label-static'));?>
                                 <?php echo form_input($first_name,'',array('class'=>'form-control'));?>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('edit_user_identity_label', 'identity', array('class'=>'bmd-label-floating')); ?>
+                                <?php echo lang('edit_user_identity_label', 'identity', array('class'=>'bmd-label-static')); ?>
                                 <?php echo form_error('identity'); ?>
                                 <?php echo form_input($identity,'',array('class'=>'form-control')); ?>
                             </div>
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('edit_user_password_label', 'password', array('class'=>'bmd-label-floating'));?>
+                                <?php echo lang('edit_user_password_label', 'password', array('class'=>'bmd-label-static'));?>
                                 <?php echo form_input($password,'',array('class'=>'form-control'));?>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
-                                <?php echo lang('edit_user_password_confirm_label', 'password_confirm', array('class'=>'bmd-label-floating'));?>
+                                <?php echo lang('edit_user_password_confirm_label', 'password_confirm', array('class'=>'bmd-label-static'));?>
                                 <?php echo form_input($password_confirm,'',array('class'=>'form-control'));?>
                             </div>
                         </div>
