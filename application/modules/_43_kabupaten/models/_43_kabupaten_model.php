@@ -25,8 +25,11 @@ class _43_kabupaten_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $this->db->where($this->table.'.'.$this->id, $id);
+        $this->db->select($this->table . '.*, t42_provinsi.nama as namaProvinsi');
+        $this->db->from($this->table);
+        $this->db->join('t42_provinsi', 't42_provinsi.id = '.$this->table.'.provinsi_id');
+        return $this->db->get()->row();
     }
 
     // get total rows

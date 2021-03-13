@@ -12,7 +12,8 @@
     <body>
         <h2 style="margin-top:0px">T43_kabupaten Read</h2> -->
         <table class="table">
-    	    <tr><td>Provinsi Id</td><td><?php echo $provinsi_id; ?></td></tr>
+    	    <!-- <tr><td>Provinsi Id</td><td><?php echo $provinsi_id; ?></td></tr> -->
+            <tr><td>Provinsi</td><td><?php echo $namaProvinsi; ?></td></tr>
     	    <tr><td>Nama</td><td><?php echo $nama; ?></td></tr>
     	    <tr><td></td><td><a href="<?php echo site_url('_43_kabupaten') ?>" class="btn btn-default">Cancel</a></td></tr>
     	</table>

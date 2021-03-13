@@ -39,7 +39,7 @@ class _43_kabupaten extends CI_Controller
             'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
             'start' => $start,
-        );
+            );
         // $this->load->view('_43_kabupaten/t43_kabupaten_list', $data);
         $data['_view'] = '_43_kabupaten/t43_kabupaten_list';
         $data['_caption'] = 'Kabupaten';
@@ -51,10 +51,11 @@ class _43_kabupaten extends CI_Controller
         $row = $this->_43_kabupaten_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id' => $row->id,
-		'provinsi_id' => $row->provinsi_id,
-		'nama' => $row->nama,
-	    );
+        		'id' => $row->id,
+        		'provinsi_id' => $row->provinsi_id,
+        		'nama' => $row->nama,
+                'namaProvinsi' => $row->namaProvinsi,
+        	    );
             // $this->load->view('_43_kabupaten/t43_kabupaten_read', $data);
             $data['_view'] = '_43_kabupaten/t43_kabupaten_read';
             $data['_caption'] = 'Kabupaten';
@@ -67,13 +68,16 @@ class _43_kabupaten extends CI_Controller
 
     public function create()
     {
+        $this->load->model('_42_provinsi/_42_provinsi_model');
+        $provinsi = $this->_42_provinsi_model->get_all();
         $data = array(
             'button' => 'Create',
             'action' => site_url('_43_kabupaten/create_action'),
-	    'id' => set_value('id'),
-	    'provinsi_id' => set_value('provinsi_id'),
-	    'nama' => set_value('nama'),
-	);
+    	    'id' => set_value('id'),
+    	    'provinsi_id' => set_value('provinsi_id'),
+    	    'nama' => set_value('nama'),
+            'provinsi_data' => $provinsi,
+    	   );
         // $this->load->view('_43_kabupaten/t43_kabupaten_form', $data);
         $data['_view'] = '_43_kabupaten/t43_kabupaten_form';
         $data['_caption'] = 'Kabupaten';
@@ -88,9 +92,9 @@ class _43_kabupaten extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'provinsi_id' => $this->input->post('provinsi_id',TRUE),
-		'nama' => $this->input->post('nama',TRUE),
-	    );
+        		'provinsi_id' => $this->input->post('provinsi_id',TRUE),
+        		'nama' => $this->input->post('nama',TRUE),
+        	    );
 
             $this->_43_kabupaten_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -103,13 +107,16 @@ class _43_kabupaten extends CI_Controller
         $row = $this->_43_kabupaten_model->get_by_id($id);
 
         if ($row) {
+            $this->load->model('_42_provinsi/_42_provinsi_model');
+            $provinsi = $this->_42_provinsi_model->get_all();
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('_43_kabupaten/update_action'),
-		'id' => set_value('id', $row->id),
-		'provinsi_id' => set_value('provinsi_id', $row->provinsi_id),
-		'nama' => set_value('nama', $row->nama),
-	    );
+        		'id' => set_value('id', $row->id),
+        		'provinsi_id' => set_value('provinsi_id', $row->provinsi_id),
+        		'nama' => set_value('nama', $row->nama),
+                'provinsi_data' => $provinsi,
+        	    );
             // $this->load->view('_43_kabupaten/t43_kabupaten_form', $data);
             $data['_view'] = '_43_kabupaten/t43_kabupaten_form';
             $data['_caption'] = 'Kabupaten';
@@ -128,9 +135,9 @@ class _43_kabupaten extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-		'provinsi_id' => $this->input->post('provinsi_id',TRUE),
-		'nama' => $this->input->post('nama',TRUE),
-	    );
+        		'provinsi_id' => $this->input->post('provinsi_id',TRUE),
+        		'nama' => $this->input->post('nama',TRUE),
+        	    );
 
             $this->_43_kabupaten_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -154,11 +161,11 @@ class _43_kabupaten extends CI_Controller
 
     public function _rules()
     {
-	$this->form_validation->set_rules('provinsi_id', 'provinsi id', 'trim|required');
-	$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+    	$this->form_validation->set_rules('provinsi_id', 'provinsi id', 'trim|required');
+    	$this->form_validation->set_rules('nama', 'nama', 'trim|required');
 
-	$this->form_validation->set_rules('id', 'id', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+    	$this->form_validation->set_rules('id', 'id', 'trim');
+    	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
@@ -183,18 +190,18 @@ class _43_kabupaten extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Provinsi Id");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Provinsi Id");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Nama");
 
-	foreach ($this->_43_kabupaten_model->get_all() as $data) {
+    	foreach ($this->_43_kabupaten_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->provinsi_id);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->provinsi_id);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->nama);
 
-	    $tablebody++;
+    	    $tablebody++;
             $nourut++;
         }
 
@@ -210,7 +217,7 @@ class _43_kabupaten extends CI_Controller
         $data = array(
             't43_kabupaten_data' => $this->_43_kabupaten_model->get_all(),
             'start' => 0
-        );
+            );
 
         $this->load->view('_43_kabupaten/t43_kabupaten_doc',$data);
     }
