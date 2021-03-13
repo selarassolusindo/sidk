@@ -18,11 +18,11 @@ class _42_provinsi extends CI_Controller
         $start = intval($this->input->get('start'));
 
         if ($q <> '') {
-            $config['base_url'] = base_url() . '_42_provinsi/q=' . urlencode($q);
-            $config['first_url'] = base_url() . '_42_provinsi/q=' . urlencode($q);
+            $config['base_url'] = base_url() . '_42_provinsi?q=' . urlencode($q);
+            $config['first_url'] = base_url() . '_42_provinsi?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . '_42_provinsi/';
-            $config['first_url'] = base_url() . '_42_provinsi/';
+            $config['base_url'] = base_url() . '_42_provinsi';
+            $config['first_url'] = base_url() . '_42_provinsi';
         }
 
         $config['per_page'] = 10;
