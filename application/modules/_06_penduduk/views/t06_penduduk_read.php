@@ -16,10 +16,13 @@
             <tr><td>Nama</td><td><?php echo $Nama; ?></td></tr>
             <tr><td>NIK</td><td><?php echo $NIK; ?></td></tr>
             <tr><td>Jenis Kelamin</td><td><?php echo $JenisKelamin; ?></td></tr>
-            <tr><td>Tempat Lahir</td><td><?php echo $TempatLahir; ?></td></tr>
+            <!-- <tr><td>Tempat Lahir</td><td><?php echo $TempatLahir; ?></td></tr> -->
+            <tr><td>Tempat Lahir</td><td><?php echo $namaKabupaten; ?></td></tr>
             <tr><td>Tanggal Lahir</td><td><?php echo $TanggalLahir; ?></td></tr>
-            <tr><td>Agama</td><td><?php echo $Agama; ?></td></tr>
-            <tr><td>Pendidikan</td><td><?php echo $Pendidikan; ?></td></tr>
+            <!-- <tr><td>Agama</td><td><?php echo $Agama; ?></td></tr> -->
+            <tr><td>Agama</td><td><?php echo $namaAgama; ?></td></tr>
+            <!-- <tr><td>Pendidikan</td><td><?php echo $Pendidikan; ?></td></tr> -->
+            <tr><td>Pendidikan</td><td><?php echo $namaPendidikan; ?></td></tr>
             <tr><td>Pekerjaan</td><td><?php echo $Pekerjaan; ?></td></tr>
             <tr><td>Status Kawin</td><td><?php echo $StatusKawin; ?></td></tr>
             <tr><td>Hubungan Keluarga</td><td><?php echo $HubunganKeluarga; ?></td></tr>

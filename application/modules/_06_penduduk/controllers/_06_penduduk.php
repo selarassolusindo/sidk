@@ -18,11 +18,11 @@ class _06_penduduk extends CI_Controller
         $start = intval($this->input->get('start'));
 
         if ($q <> '') {
-            $config['base_url'] = base_url() . '_06_penduduk/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . '_06_penduduk/index.html?q=' . urlencode($q);
+            $config['base_url'] = base_url() . '_06_penduduk?q=' . urlencode($q);
+            $config['first_url'] = base_url() . '_06_penduduk?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . '_06_penduduk/index.html';
-            $config['first_url'] = base_url() . '_06_penduduk/index.html';
+            $config['base_url'] = base_url() . '_06_penduduk';
+            $config['first_url'] = base_url() . '_06_penduduk';
         }
 
         $config['per_page'] = 10;
@@ -51,29 +51,32 @@ class _06_penduduk extends CI_Controller
         $row = $this->_06_penduduk_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'idpenduduk' => $row->idpenduduk,
-		'NoUrut' => $row->NoUrut,
-		'Nama' => $row->Nama,
-		'NIK' => $row->NIK,
-		'JenisKelamin' => $row->JenisKelamin,
-		'TempatLahir' => $row->TempatLahir,
-		'TanggalLahir' => $row->TanggalLahir,
-		'Agama' => $row->Agama,
-		'Pendidikan' => $row->Pendidikan,
-		'Pekerjaan' => $row->Pekerjaan,
-		'StatusKawin' => $row->StatusKawin,
-		'HubunganKeluarga' => $row->HubunganKeluarga,
-		'WargaNegara' => $row->WargaNegara,
-		'NoPaspor' => $row->NoPaspor,
-		'NoKitasKitap' => $row->NoKitasKitap,
-		'NamaAyah' => $row->NamaAyah,
-		'NamaIbu' => $row->NamaIbu,
-		'idinduk' => $row->idinduk,
-		'idkk' => $row->idkk,
-		'iduser' => $row->iduser,
-		'created_at' => $row->created_at,
-		'updated_at' => $row->updated_at,
-	    );
+        		'idpenduduk' => $row->idpenduduk,
+        		'NoUrut' => $row->NoUrut,
+        		'Nama' => $row->Nama,
+        		'NIK' => $row->NIK,
+        		'JenisKelamin' => $row->JenisKelamin,
+        		'TempatLahir' => $row->TempatLahir,
+        		'TanggalLahir' => $row->TanggalLahir,
+        		'Agama' => $row->Agama,
+        		'Pendidikan' => $row->Pendidikan,
+        		'Pekerjaan' => $row->Pekerjaan,
+        		'StatusKawin' => $row->StatusKawin,
+        		'HubunganKeluarga' => $row->HubunganKeluarga,
+        		'WargaNegara' => $row->WargaNegara,
+        		'NoPaspor' => $row->NoPaspor,
+        		'NoKitasKitap' => $row->NoKitasKitap,
+        		'NamaAyah' => $row->NamaAyah,
+        		'NamaIbu' => $row->NamaIbu,
+        		'idinduk' => $row->idinduk,
+        		'idkk' => $row->idkk,
+        		'iduser' => $row->iduser,
+        		'created_at' => $row->created_at,
+        		'updated_at' => $row->updated_at,
+                'namaKabupaten' => $row->namaKabupaten,
+                'namaAgama' => $row->namaAgama,
+                'namaPendidikan' => $row->namaPendidikan,
+        	    );
             // $this->load->view('_06_penduduk/t06_penduduk_read', $data);
             $data['_view'] = '_06_penduduk/t06_penduduk_read';
             $data['_caption'] = 'Penduduk';

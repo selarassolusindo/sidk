@@ -25,10 +25,20 @@ class _06_penduduk_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
+        // $this->db->where($this->id, $id);
+        // return $this->db->get($this->table)->row();
         $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $this->db->select($this->table . '.*');
+        $this->db->select('t43_kabupaten.nama as namaKabupaten');
+        $this->db->select('t41_agama.Agama as namaAgama');
+        $this->db->select('t40_pendidikan.Pendidikan as namaPendidikan');
+        $this->db->from($this->table);
+        $this->db->join('t43_kabupaten', 't43_kabupaten.id = '.$this->table.'.TempatLahir');
+        $this->db->join('t41_agama', 't41_agama.idagama = '.$this->table.'.Agama');
+        $this->db->join('t40_pendidikan', 't40_pendidikan.idpendidikan = '.$this->table.'.Pendidikan');
+        return $this->db->get()->row();
     }
-    
+
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('idpenduduk', $q);
