@@ -16,13 +16,13 @@ class _43_kabupaten extends CI_Controller
     {
         $q = urldecode($this->input->get('q', TRUE));
         $start = intval($this->input->get('start'));
-        
+
         if ($q <> '') {
-            $config['base_url'] = base_url() . '_43_kabupaten/index.html?q=' . urlencode($q);
-            $config['first_url'] = base_url() . '_43_kabupaten/index.html?q=' . urlencode($q);
+            $config['base_url'] = base_url() . '_43_kabupaten?q=' . urlencode($q);
+            $config['first_url'] = base_url() . '_43_kabupaten?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . '_43_kabupaten/index.html';
-            $config['first_url'] = base_url() . '_43_kabupaten/index.html';
+            $config['base_url'] = base_url() . '_43_kabupaten';
+            $config['first_url'] = base_url() . '_43_kabupaten';
         }
 
         $config['per_page'] = 10;
@@ -40,10 +40,13 @@ class _43_kabupaten extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->load->view('_43_kabupaten/t43_kabupaten_list', $data);
+        // $this->load->view('_43_kabupaten/t43_kabupaten_list', $data);
+        $data['_view'] = '_43_kabupaten/t43_kabupaten_list';
+        $data['_caption'] = 'Kabupaten';
+        $this->load->view('_00_dashboard/_00_dashboard', $data);
     }
 
-    public function read($id) 
+    public function read($id)
     {
         $row = $this->_43_kabupaten_model->get_by_id($id);
         if ($row) {
@@ -52,14 +55,17 @@ class _43_kabupaten extends CI_Controller
 		'provinsi_id' => $row->provinsi_id,
 		'nama' => $row->nama,
 	    );
-            $this->load->view('_43_kabupaten/t43_kabupaten_read', $data);
+            // $this->load->view('_43_kabupaten/t43_kabupaten_read', $data);
+            $data['_view'] = '_43_kabupaten/t43_kabupaten_read';
+            $data['_caption'] = 'Kabupaten';
+            $this->load->view('_00_dashboard/_00_dashboard', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_43_kabupaten'));
         }
     }
 
-    public function create() 
+    public function create()
     {
         $data = array(
             'button' => 'Create',
@@ -68,10 +74,13 @@ class _43_kabupaten extends CI_Controller
 	    'provinsi_id' => set_value('provinsi_id'),
 	    'nama' => set_value('nama'),
 	);
-        $this->load->view('_43_kabupaten/t43_kabupaten_form', $data);
+        // $this->load->view('_43_kabupaten/t43_kabupaten_form', $data);
+        $data['_view'] = '_43_kabupaten/t43_kabupaten_form';
+        $data['_caption'] = 'Kabupaten';
+        $this->load->view('_00_dashboard/_00_dashboard', $data);
     }
-    
-    public function create_action() 
+
+    public function create_action()
     {
         $this->_rules();
 
@@ -88,8 +97,8 @@ class _43_kabupaten extends CI_Controller
             redirect(site_url('_43_kabupaten'));
         }
     }
-    
-    public function update($id) 
+
+    public function update($id)
     {
         $row = $this->_43_kabupaten_model->get_by_id($id);
 
@@ -101,14 +110,17 @@ class _43_kabupaten extends CI_Controller
 		'provinsi_id' => set_value('provinsi_id', $row->provinsi_id),
 		'nama' => set_value('nama', $row->nama),
 	    );
-            $this->load->view('_43_kabupaten/t43_kabupaten_form', $data);
+            // $this->load->view('_43_kabupaten/t43_kabupaten_form', $data);
+            $data['_view'] = '_43_kabupaten/t43_kabupaten_form';
+            $data['_caption'] = 'Kabupaten';
+            $this->load->view('_00_dashboard/_00_dashboard', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_43_kabupaten'));
         }
     }
-    
-    public function update_action() 
+
+    public function update_action()
     {
         $this->_rules();
 
@@ -125,8 +137,8 @@ class _43_kabupaten extends CI_Controller
             redirect(site_url('_43_kabupaten'));
         }
     }
-    
-    public function delete($id) 
+
+    public function delete($id)
     {
         $row = $this->_43_kabupaten_model->get_by_id($id);
 
@@ -140,7 +152,7 @@ class _43_kabupaten extends CI_Controller
         }
     }
 
-    public function _rules() 
+    public function _rules()
     {
 	$this->form_validation->set_rules('provinsi_id', 'provinsi id', 'trim|required');
 	$this->form_validation->set_rules('nama', 'nama', 'trim|required');
@@ -199,7 +211,7 @@ class _43_kabupaten extends CI_Controller
             't43_kabupaten_data' => $this->_43_kabupaten_model->get_all(),
             'start' => 0
         );
-        
+
         $this->load->view('_43_kabupaten/t43_kabupaten_doc',$data);
     }
 

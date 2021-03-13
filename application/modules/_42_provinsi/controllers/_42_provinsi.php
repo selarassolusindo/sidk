@@ -54,7 +54,10 @@ class _42_provinsi extends CI_Controller
 		'id' => $row->id,
 		'nama' => $row->nama,
 	    );
-            $this->load->view('_42_provinsi/t42_provinsi_read', $data);
+            // $this->load->view('_42_provinsi/t42_provinsi_read', $data);
+            $data['_view'] = '_42_provinsi/t42_provinsi_read';
+            $data['_caption'] = 'Provinsi';
+            $this->load->view('_00_dashboard/_00_dashboard', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_42_provinsi'));
@@ -69,7 +72,10 @@ class _42_provinsi extends CI_Controller
 	    'id' => set_value('id'),
 	    'nama' => set_value('nama'),
 	);
-        $this->load->view('_42_provinsi/t42_provinsi_form', $data);
+        // $this->load->view('_42_provinsi/t42_provinsi_form', $data);
+        $data['_view'] = '_42_provinsi/t42_provinsi_form';
+        $data['_caption'] = 'Provinsi';
+        $this->load->view('_00_dashboard/_00_dashboard', $data);
     }
 
     public function create_action()
@@ -100,7 +106,10 @@ class _42_provinsi extends CI_Controller
 		'id' => set_value('id', $row->id),
 		'nama' => set_value('nama', $row->nama),
 	    );
-            $this->load->view('_42_provinsi/t42_provinsi_form', $data);
+            // $this->load->view('_42_provinsi/t42_provinsi_form', $data);
+            $data['_view'] = '_42_provinsi/t42_provinsi_form';
+            $data['_caption'] = 'Provinsi';
+            $this->load->view('_00_dashboard/_00_dashboard', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('_42_provinsi'));
