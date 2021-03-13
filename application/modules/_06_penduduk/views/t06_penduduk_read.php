@@ -25,8 +25,10 @@
             <tr><td>Pendidikan</td><td><?php echo $namaPendidikan; ?></td></tr>
             <!-- <tr><td>Pekerjaan</td><td><?php echo $Pekerjaan; ?></td></tr> -->
             <tr><td>Pekerjaan</td><td><?php echo $namaPekerjaan; ?></td></tr>
-            <tr><td>Status Kawin</td><td><?php echo $StatusKawin; ?></td></tr>
-            <tr><td>Hubungan Keluarga</td><td><?php echo $HubunganKeluarga; ?></td></tr>
+            <!-- <tr><td>Status Kawin</td><td><?php echo $StatusKawin; ?></td></tr> -->
+            <tr><td>Status Kawin</td><td><?php echo $namaStatus; ?></td></tr>
+            <!-- <tr><td>Hubungan Keluarga</td><td><?php echo $HubunganKeluarga; ?></td></tr> -->
+            <tr><td>Hubungan Keluarga</td><td><?php echo $namaHubungan; ?></td></tr>
             <tr><td>Warga Negara</td><td><?php echo $WargaNegara; ?></td></tr>
             <tr><td>No. Paspor</td><td><?php echo $NoPaspor; ?></td></tr>
             <tr><td>No. Kitas/Kitap</td><td><?php echo $NoKitasKitap; ?></td></tr>

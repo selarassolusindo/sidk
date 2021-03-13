@@ -33,11 +33,15 @@ class _06_penduduk_model extends CI_Model
         $this->db->select('t41_agama.Agama as namaAgama');
         $this->db->select('t40_pendidikan.Pendidikan as namaPendidikan');
         $this->db->select('t39_pekerjaan.Pekerjaan as namaPekerjaan');
+        $this->db->select('t38_status.Status as namaStatus');
+        $this->db->select('t37_hubungan.Hubungan as namaHubungan');
         $this->db->from($this->table);
         $this->db->join('t43_kabupaten', 't43_kabupaten.id = '.$this->table.'.TempatLahir');
         $this->db->join('t41_agama', 't41_agama.idagama = '.$this->table.'.Agama');
         $this->db->join('t40_pendidikan', 't40_pendidikan.idpendidikan = '.$this->table.'.Pendidikan');
         $this->db->join('t39_pekerjaan', 't39_pekerjaan.idpekerjaan = '.$this->table.'.Pekerjaan');
+        $this->db->join('t38_status', 't38_status.idstatus = '.$this->table.'.StatusKawin');
+        $this->db->join('t37_hubungan', 't37_hubungan.idhubungan = '.$this->table.'.HubunganKeluarga');
         return $this->db->get()->row();
     }
 

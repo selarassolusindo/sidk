@@ -149,22 +149,29 @@ The above copyright notice and this permission notice shall be included in all c
                             </a>
                         </li>
 
+
+
                         <?php if ($this->ion_auth->logged_in()) { ?>
                         <!-- setup -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">description</i>Setup</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">settings</i>Setup</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?php echo site_url('auth'); ?>">User Management</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo site_url('_42_provinsi'); ?>">Provinsi</a>
-                                <a class="dropdown-item" href="<?php echo site_url('_43_kabupaten'); ?>">Kabupaten</a>
-                                <a class="dropdown-item" href="<?php echo site_url('_44_kecamatan'); ?>">Kecamatan</a>
-                                <a class="dropdown-item" href="<?php echo site_url('_45_desa'); ?>">Kelurahan</a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">Region</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="<?php echo site_url('_42_provinsi'); ?>">Provinsi</a>
+                                    <a class="dropdown-item" href="<?php echo site_url('_43_kabupaten'); ?>">Kabupaten</a>
+                                    <a class="dropdown-item" href="<?php echo site_url('_44_kecamatan'); ?>">Kecamatan</a>
+                                    <a class="dropdown-item" href="<?php echo site_url('_45_desa'); ?>">Kelurahan</a>
+                                </div>
                                 <!-- <a class="dropdown-item" href="javascript:;">Separated link</a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo site_url('_41_agama'); ?>">Agama</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_40_pendidikan'); ?>">Pendidikan</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_39_pekerjaan'); ?>">Pekerjaan</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_38_status'); ?>">Status Kawin</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_37_hubungan'); ?>">Hubungan Keluarga</a>
                             </div>
                         </li>
                         <!-- user management -->
@@ -672,5 +679,6 @@ The above copyright notice and this permission notice shall be included in all c
                 $('.form-control').addClass('form-control-sm')
             })
         </script>
+
     </body>
 </html>
