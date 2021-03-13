@@ -25,27 +25,43 @@ class _45_desa_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        // $this->db->where($this->id, $id);
+        // return $this->db->get($this->table)->row();
+        $this->db->where($this->table.'.'.$this->id, $id);
+        $this->db->select($this->table . '.*, t44_kecamatan.nama as namaKecamatan');
+        $this->db->from($this->table);
+        $this->db->join('t44_kecamatan', 't44_kecamatan.id = '.$this->table.'.kecamatan_id');
+        return $this->db->get()->row();
     }
-    
+
     // get total rows
     function total_rows($q = NULL) {
-        $this->db->like('id', $q);
-	$this->db->or_like('kecamatan_id', $q);
-	$this->db->or_like('nama', $q);
-	$this->db->from($this->table);
+        // $this->db->like('id', $q);
+    	// $this->db->or_like('kecamatan_id', $q);
+    	// $this->db->or_like('nama', $q);
+    	// $this->db->from($this->table);
+        $this->db->like($this->table.'.id', $q);
+    	$this->db->or_like('kecamatan_id', $q);
+    	$this->db->or_like($this->table.'.nama', $q);
+        $this->db->or_like('t44_kecamatan'.'.nama', $q);
+        $this->db->select($this->table . '.*, t44_kecamatan.nama as namaKecamatan');
+        $this->db->from($this->table);
+        $this->db->join('t44_kecamatan', 't44_kecamatan.id = '.$this->table.'.kecamatan_id'); // echo $this->db->get_compiled_select();
         return $this->db->count_all_results();
     }
 
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('id', $q);
-	$this->db->or_like('kecamatan_id', $q);
-	$this->db->or_like('nama', $q);
-	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        $this->db->like($this->table.'.id', $q);
+    	$this->db->or_like('kecamatan_id', $q);
+    	$this->db->or_like($this->table.'.nama', $q);
+        $this->db->or_like('t44_kecamatan'.'.nama', $q);
+    	$this->db->limit($limit, $start);
+        $this->db->select($this->table . '.*, t44_kecamatan.nama as namaKecamatan');
+        $this->db->from($this->table);
+        $this->db->join('t44_kecamatan', 't44_kecamatan.id = '.$this->table.'.kecamatan_id'); // echo $this->db->get_compiled_select();
+        return $this->db->get()->result();
     }
 
     // insert data

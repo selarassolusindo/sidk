@@ -157,7 +157,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <a class="dropdown-item" href="<?php echo site_url('_42_provinsi'); ?>">Provinsi</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_43_kabupaten'); ?>">Kabupaten</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_44_kecamatan'); ?>">Kecamatan</a>
-                                <a class="dropdown-item" href="<?php echo site_url('_45_desa'); ?>">Desa</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_45_desa'); ?>">Kelurahan</a>
                                 <!-- <div class="dropdown-divider"></div> -->
                                 <!-- <a class="dropdown-item" href="javascript:;">Separated link</a> -->
                             </div>
