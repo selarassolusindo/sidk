@@ -23,7 +23,8 @@
             <tr><td>Agama</td><td><?php echo $namaAgama; ?></td></tr>
             <!-- <tr><td>Pendidikan</td><td><?php echo $Pendidikan; ?></td></tr> -->
             <tr><td>Pendidikan</td><td><?php echo $namaPendidikan; ?></td></tr>
-            <tr><td>Pekerjaan</td><td><?php echo $Pekerjaan; ?></td></tr>
+            <!-- <tr><td>Pekerjaan</td><td><?php echo $Pekerjaan; ?></td></tr> -->
+            <tr><td>Pekerjaan</td><td><?php echo $namaPekerjaan; ?></td></tr>
             <tr><td>Status Kawin</td><td><?php echo $StatusKawin; ?></td></tr>
             <tr><td>Hubungan Keluarga</td><td><?php echo $HubunganKeluarga; ?></td></tr>
             <tr><td>Warga Negara</td><td><?php echo $WargaNegara; ?></td></tr>

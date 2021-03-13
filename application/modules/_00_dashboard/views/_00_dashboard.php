@@ -164,6 +164,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo site_url('_41_agama'); ?>">Agama</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_40_pendidikan'); ?>">Pendidikan</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_39_pekerjaan'); ?>">Pekerjaan</a>
                             </div>
                         </li>
                         <!-- user management -->
