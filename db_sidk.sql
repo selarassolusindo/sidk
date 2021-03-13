@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2021 at 06:58 PM
+-- Generation Time: Mar 13, 2021 at 07:56 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -90,6 +90,25 @@ CREATE TABLE `t06_penduduk` (
 
 INSERT INTO `t06_penduduk` (`idpenduduk`, `NoUrut`, `Nama`, `NIK`, `JenisKelamin`, `TempatLahir`, `TanggalLahir`, `Agama`, `Pendidikan`, `Pekerjaan`, `StatusKawin`, `HubunganKeluarga`, `WargaNegara`, `NoPaspor`, `NoKitasKitap`, `NamaAyah`, `NamaIbu`, `idinduk`, `idkk`, `iduser`, `created_at`, `updated_at`) VALUES
 (1, 1, '1', '1', 'LAKI-LAKI', 1101, '1974-12-24', 1, 1, 1, 1, 1, 1, '1', '1', '1', '1', 1, 1, 1, '2021-03-12 02:00:00', '2021-03-13 04:18:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t36_warganegara`
+--
+
+CREATE TABLE `t36_warganegara` (
+  `idwarganegara` tinyint(4) NOT NULL,
+  `WargaNegara` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `t36_warganegara`
+--
+
+INSERT INTO `t36_warganegara` (`idwarganegara`, `WargaNegara`) VALUES
+(1, 'WNI'),
+(2, 'WNA');
 
 -- --------------------------------------------------------
 
@@ -87481,7 +87500,7 @@ CREATE TABLE `t46_users` (
 --
 
 INSERT INTO `t46_users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$tUJTKj9YIpj80B4PSLKRouJYOMFKGEAKpK8DUtr3e8y6PH6aN0dhy', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615627964, 1, 'Admin', NULL, NULL, NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$tUJTKj9YIpj80B4PSLKRouJYOMFKGEAKpK8DUtr3e8y6PH6aN0dhy', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1615639650, 1, 'Admin', NULL, NULL, NULL),
 (2, '::1', 'dodo', '$2y$10$P881IiDEzL.TD9a3QsNw/uTG49PeH9udywm8DrTZieAqYnruYBM8O', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1615481968, 1615503799, 1, 'Dodo', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -87556,6 +87575,12 @@ ALTER TABLE `t05_warga`
 --
 ALTER TABLE `t06_penduduk`
   ADD PRIMARY KEY (`idpenduduk`);
+
+--
+-- Indexes for table `t36_warganegara`
+--
+ALTER TABLE `t36_warganegara`
+  ADD PRIMARY KEY (`idwarganegara`);
 
 --
 -- Indexes for table `t37_hubungan`
@@ -87657,6 +87682,12 @@ ALTER TABLE `t05_warga`
 --
 ALTER TABLE `t06_penduduk`
   MODIFY `idpenduduk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `t36_warganegara`
+--
+ALTER TABLE `t36_warganegara`
+  MODIFY `idwarganegara` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `t37_hubungan`
