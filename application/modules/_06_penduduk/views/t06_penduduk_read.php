@@ -29,7 +29,8 @@
             <tr><td>Status Kawin</td><td><?php echo $namaStatus; ?></td></tr>
             <!-- <tr><td>Hubungan Keluarga</td><td><?php echo $HubunganKeluarga; ?></td></tr> -->
             <tr><td>Hubungan Keluarga</td><td><?php echo $namaHubungan; ?></td></tr>
-            <tr><td>Warga Negara</td><td><?php echo $WargaNegara; ?></td></tr>
+            <!-- <tr><td>Warga Negara</td><td><?php echo $WargaNegara; ?></td></tr> -->
+            <tr><td>Warga Negara</td><td><?php echo $namaWargaNegara; ?></td></tr>
             <tr><td>No. Paspor</td><td><?php echo $NoPaspor; ?></td></tr>
             <tr><td>No. Kitas/Kitap</td><td><?php echo $NoKitasKitap; ?></td></tr>
             <tr><td>Nama Ayah</td><td><?php echo $NamaAyah; ?></td></tr>

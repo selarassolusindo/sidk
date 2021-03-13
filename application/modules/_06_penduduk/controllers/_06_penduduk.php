@@ -79,6 +79,7 @@ class _06_penduduk extends CI_Controller
                 'namaPekerjaan' => $row->namaPekerjaan,
                 'namaStatus' => $row->namaStatus,
                 'namaHubungan' => $row->namaHubungan,
+                'namaWargaNegara' => $row->namaWargaNegara,
         	    );
             // $this->load->view('_06_penduduk/t06_penduduk_read', $data);
             $data['_view'] = '_06_penduduk/t06_penduduk_read';

@@ -138,22 +138,35 @@ The above copyright notice and this permission notice shall be included in all c
                 Tip 2: you can also add an image using data-image tag
                 -->
                 <div class="logo">
-                    <a href="<?php site_url(); ?>" class="simple-text logo-normal"><?php echo SITE_NAME; ?></a>
+                    <a href="<?php site_url(); ?>" class="simple-text logo-normal"><?php echo SITE_NAME . ' ' . SITE_VERSION; ?></a>
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
-                        <li class="nav-item active  ">
+                        <li class="nav-item <?php echo ($this->uri->segment(1) == '' ? 'active' : ''); ?>">
                             <a class="nav-link" href="<?php echo site_url(); ?>">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
 
-
-
                         <?php if ($this->ion_auth->logged_in()) { ?>
                         <!-- setup -->
-                        <li class="nav-item dropdown">
+                        <?php
+                        $uri = array(
+                            'auth',
+                            '_36_warganegara',
+                            '_37_hubungan',
+                            '_38_status',
+                            '_39_pekerjaan',
+                            '_40_pendidikan',
+                            '_41_agama',
+                            '_42_provinsi',
+                            '_43_kabupaten',
+                            '_44_kecamatan',
+                            '_45_desa',
+                            );
+                        ?>
+                        <li class="nav-item dropdown <?php echo (in_array($this->uri->segment(1), $uri) ? 'active' : ''); ?>">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">settings</i>Setup</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?php echo site_url('auth'); ?>">User Management</a>
@@ -172,6 +185,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <a class="dropdown-item" href="<?php echo site_url('_39_pekerjaan'); ?>">Pekerjaan</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_38_status'); ?>">Status Kawin</a>
                                 <a class="dropdown-item" href="<?php echo site_url('_37_hubungan'); ?>">Hubungan Keluarga</a>
+                                <a class="dropdown-item" href="<?php echo site_url('_36_warganegara'); ?>">Kewarganegaraan</a>
                             </div>
                         </li>
                         <!-- user management -->
@@ -189,61 +203,61 @@ The above copyright notice and this permission notice shall be included in all c
                             </a>
                         </li> -->
                         <!-- penduduk -->
-                        <li class="nav-item ">
+                        <li class="nav-item <?php echo ($this->uri->segment(1) == '_06_penduduk' ? 'active' : ''); ?>">
                             <a class="nav-link" href="<?php echo site_url(); ?>_06_penduduk">
                                 <i class="material-icons">escalator_warning</i>
                                 <p>Penduduk</p>
                             </a>
                         </li>
                         <!-- user profile -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/user.html">
                                 <i class="material-icons">person</i>
                                 <p>User Profile</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- table list -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/tables.html">
                                 <i class="material-icons">content_paste</i>
                                 <p>Table List</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- typography -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/typography.html">
                                 <i class="material-icons">library_books</i>
                                 <p>Typography</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- icons -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/icons.html">
                                 <i class="material-icons">bubble_chart</i>
                                 <p>Icons</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- maps -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/map.html">
                                 <i class="material-icons">location_ons</i>
                                 <p>Maps</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- notifications -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/notifications.html">
                                 <i class="material-icons">notifications</i>
                                 <p>Notifications</p>
                             </a>
-                        </li>
+                        </li> -->
                         <!-- rtl support -->
-                        <li class="nav-item ">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="<?php echo base_url(); ?>assets/material/examples/rtl.html">
                                 <i class="material-icons">language</i>
                                 <p>RTL Support</p>
                             </a>
-                        </li>
+                        </li> -->
                         <?php } ?>
 
                         <?php if ($this->session->userdata('user_id') != "") { ?>

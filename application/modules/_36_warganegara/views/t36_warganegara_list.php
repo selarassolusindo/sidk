@@ -10,10 +10,10 @@
         </style>
     </head>
     <body>
-        <h2 style="margin-top:0px">T37_hubungan List</h2> -->
+        <h2 style="margin-top:0px">T36_warganegara List</h2> -->
         <div class="row" style="margin-bottom: 10px">
             <div class="col-md-4">
-                <?php echo anchor(site_url('_37_hubungan/create'),'Create', 'class="btn btn-primary"'); ?>
+                <?php echo anchor(site_url('_36_warganegara/create'),'Create', 'class="btn btn-primary"'); ?>
             </div>
             <div class="col-md-4 text-center">
                 <div style="margin-top: 8px" id="message">
@@ -23,7 +23,7 @@
             <div class="col-md-1 text-right">
             </div>
             <div class="col-md-3 text-right">
-                <form action="<?php echo site_url('_37_hubungan/index'); ?>" class="form-inline" method="get">
+                <form action="<?php echo site_url('_36_warganegara/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
@@ -31,7 +31,7 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('_37_hubungan'); ?>" class="btn btn-default">Reset</a>
+                                    <a href="<?php echo site_url('_36_warganegara'); ?>" class="btn btn-default">Reset</a>
                                     <?php
                                 }
                             ?>
@@ -52,35 +52,35 @@
                             <thead>
                                 <tr>
                                     <th class="text-right">No.</th>
-                            		<th>Hubungan</th>
+                            		<th>Warga Negara</th>
                             		<th class="text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($_37_hubungan_data as $_37_hubungan)
+                                foreach ($_36_warganegara_data as $_36_warganegara)
                                 {
                                 ?>
                                 <tr>
                         			<td class="text-right" width="80px"><?php echo ++$start ?></td>
-                        			<td><?php echo $_37_hubungan->Hubungan ?></td>
+                        			<td><?php echo $_36_warganegara->WargaNegara ?></td>
                         			<!-- <td style="text-align:center" width="200px">
                         				<?php
-                        				echo anchor(site_url('_37_hubungan/read/'.$_37_hubungan->idhubungan),'Read');
+                        				echo anchor(site_url('_36_warganegara/read/'.$_36_warganegara->idwarganegara),'Read');
                         				echo ' | ';
-                        				echo anchor(site_url('_37_hubungan/update/'.$_37_hubungan->idhubungan),'Update');
+                        				echo anchor(site_url('_36_warganegara/update/'.$_36_warganegara->idwarganegara),'Update');
                         				echo ' | ';
-                        				echo anchor(site_url('_37_hubungan/delete/'.$_37_hubungan->idhubungan),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+                        				echo anchor(site_url('_36_warganegara/delete/'.$_36_warganegara->idwarganegara),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
                         				?>
                         			</td> -->
                                     <td class="td-actions text-right">
-                                        <a href="<?php echo site_url('_37_hubungan/read/'.$_37_hubungan->idhubungan); ?>" type="button" rel="tooltip" class="btn btn-info">
+                                        <a href="<?php echo site_url('_36_warganegara/read/'.$_36_warganegara->idwarganegara); ?>" type="button" rel="tooltip" class="btn btn-info">
                                             <i class="material-icons">pageview</i>
                                         </a>
-                                        <a href="<?php echo site_url('_37_hubungan/update/'.$_37_hubungan->idhubungan); ?>" type="button" rel="tooltip" class="btn btn-success">
+                                        <a href="<?php echo site_url('_36_warganegara/update/'.$_36_warganegara->idwarganegara); ?>" type="button" rel="tooltip" class="btn btn-success">
                                             <i class="material-icons">edit</i>
                                         </a>
-                                        <a href="<?php echo site_url('_37_hubungan/delete/'.$_37_hubungan->idhubungan); ?>" type="button" rel="tooltip" class="btn btn-danger" onclick="javascript: return confirm('Are You Sure ?')">
+                                        <a href="<?php echo site_url('_36_warganegara/delete/'.$_36_warganegara->idwarganegara); ?>" type="button" rel="tooltip" class="btn btn-danger" onclick="javascript: return confirm('Are You Sure ?')">
                                             <i class="material-icons">close</i>
                                         </a>
                                     </td>
@@ -97,8 +97,8 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="#" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-        		<?php echo anchor(site_url('_37_hubungan/excel'), 'Excel', 'class="btn btn-primary"'); ?>
-        		<?php echo anchor(site_url('_37_hubungan/word'), 'Word', 'class="btn btn-primary"'); ?>
+        		<?php echo anchor(site_url('_36_warganegara/excel'), 'Excel', 'class="btn btn-primary"'); ?>
+        		<?php echo anchor(site_url('_36_warganegara/word'), 'Word', 'class="btn btn-primary"'); ?>
     	    </div>
             <div class="col-md-6 text-right">
                 <?php echo $pagination ?>
