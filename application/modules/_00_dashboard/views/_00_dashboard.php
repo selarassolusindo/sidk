@@ -23,9 +23,12 @@ The above copyright notice and this permission notice shall be included in all c
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- CSS Files -->
+        <!-- <link href="<?php echo base_url(); ?>assets/material/assets/css/bootstrap-select.min.css" rel="stylesheet" /> -->
         <link href="<?php echo base_url(); ?>assets/material/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+        <link href="<?php echo base_url(); ?>assets/select2/css/select2.min.css" rel="stylesheet" />
+        <link href="<?php echo base_url(); ?>assets/datetimepicker/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
-        <link href="<?php echo base_url(); ?>assets/material/assets/demo/demo.css" rel="stylesheet" />
+        <!-- <link href="<?php echo base_url(); ?>assets/material/assets/demo/demo.css" rel="stylesheet" /> -->
 
         <style>
             .pagination {
@@ -123,6 +126,9 @@ The above copyright notice and this permission notice shall be included in all c
             }
         </style>
 
+        <script src="<?php echo base_url(); ?>assets/material/assets/js/core/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/select2/js/select2.min.js"></script>
+
     </head>
 
     <body class="text-sm">
@@ -138,7 +144,7 @@ The above copyright notice and this permission notice shall be included in all c
                 Tip 2: you can also add an image using data-image tag
                 -->
                 <div class="logo">
-                    <a href="<?php site_url(); ?>" class="simple-text logo-normal"><?php echo SITE_NAME . ' ' . SITE_VERSION; ?></a>
+                    <a href="<?php echo site_url(); ?>" class="simple-text logo-normal"><?php echo SITE_NAME . ' ' . SITE_VERSION; ?></a>
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
@@ -466,7 +472,7 @@ The above copyright notice and this permission notice shall be included in all c
         </div> -->
 
         <!--   Core JS Files   -->
-        <script src="<?php echo base_url(); ?>assets/material/assets/js/core/jquery.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/material/assets/js/core/jquery.min.js"></script> -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/core/popper.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/material/assets/js/core/bootstrap-material-design.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -480,8 +486,10 @@ The above copyright notice and this permission notice shall be included in all c
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
         <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/bootstrap-selectpicker.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/bootstrap-select.min.js"></script> -->
         <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
         <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/jquery.dataTables.min.js"></script>
         <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
@@ -499,7 +507,7 @@ The above copyright notice and this permission notice shall be included in all c
         <!-- Library for adding dinamically elements -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/arrive.min.js"></script>
         <!--  Google Maps Plugin    -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
         <!-- Chartist JS -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/plugins/chartist.min.js"></script>
         <!--  Notifications Plugin    -->
@@ -507,7 +515,8 @@ The above copyright notice and this permission notice shall be included in all c
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="<?php echo base_url(); ?>assets/material/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
         <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-        <script src="<?php echo base_url(); ?>assets/material/assets/demo/demo.js"></script>
+        <!-- <script src="<?php echo base_url(); ?>assets/material/assets/demo/demo.js"></script> -->
+
         <script>
             $(document).ready(function() {
                 $().ready(function() {
